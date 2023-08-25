@@ -1,14 +1,13 @@
 
-import './App.css'
-import { ChatIcon } from './assets/svg'
+import { CallIcon, ChatIcon, DocumentIcon } from './assets/svg'
 function App() {
 
 
   return (
-    <>
-      <h2>Welcome to front end</h2>
-      <ChatIcon />
-    </>
+    <div className='dark' >
+
+      <CallIcon className="fill-blue-600" />
+    </div>
   )
 }
 
