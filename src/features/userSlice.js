@@ -31,7 +31,7 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async (values, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post(`https://whatsup-guys.ddns.net/api/v1/login`, {
+      const { data } = await axios.post(`https://whatsup-guys.ddns.net/api/v1/auth/login`, {
         ...values,
       });
       return data;
