@@ -5,10 +5,10 @@ import { open_create_conversation } from "../../../features/chatSlice";
 function Contact({ contact, setSearchResults, socket }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const { token } = user;
+  const { access_token } = user;
   const values = {
     receiver_id: contact._id,
-    token,
+    access_token,
   };
   const openConversation = async () => {
     let newConvo = await dispatch(open_create_conversation(values));

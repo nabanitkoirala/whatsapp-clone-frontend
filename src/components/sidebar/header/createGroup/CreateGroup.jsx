@@ -21,7 +21,7 @@ export default function CreateGroup({ setShowCreateGroup }) {
           `${process.env.REACT_APP_API_ENDPOINT}/user?search=${e.target.value}`,
           {
             headers: {
-              Authorization: `Bearer ${user.token}`,
+              Authorization: `Bearer ${user.access_token}`,
             },
           }
         );
@@ -55,7 +55,7 @@ export default function CreateGroup({ setShowCreateGroup }) {
       let values = {
         name,
         users,
-        token: user.token,
+        token: user.access_token,
       };
       let newConvo = await dispatch(createGroupConversation(values));
       setShowCreateGroup(false);

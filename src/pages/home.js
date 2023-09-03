@@ -145,8 +145,8 @@ function Home({ socket }) {
   };
   //get Conversations
   useEffect(() => {
-    if (user?.token) {
-      dispatch(getConversations(user.token));
+    if (user?.access_token) {
+      dispatch(getConversations(user.access_token));
     }
   }, [user]);
   useEffect(() => {

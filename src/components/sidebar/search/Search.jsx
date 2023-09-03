@@ -5,7 +5,7 @@ import { FilterIcon, ReturnIcon, SearchIcon } from "../../../svg";
 
 export default function Search({ searchLength, setSearchResults }) {
   const { user } = useSelector((state) => state.user);
-  const { token } = user;
+  const { access_token } = user;
   const [show, setShow] = useState(false);
   const handleSearch = async (e) => {
     if (e.target.value && e.key === "Enter") {
@@ -14,7 +14,7 @@ export default function Search({ searchLength, setSearchResults }) {
           `${process.env.REACT_APP_API_ENDPOINT}/user?search=${e.target.value}`,
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${access_token}`,
             },
           }
         );

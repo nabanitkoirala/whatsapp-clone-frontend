@@ -12,7 +12,7 @@ const initialState = {
     email: "",
     picture: "",
     status: "",
-    token: "",
+    access_token: "",
   },
 };
 
@@ -54,7 +54,7 @@ export const userSlice = createSlice({
         email: "",
         picture: "",
         status: "",
-        token: "",
+        access_token: "",
       };
     },
     changeStatus: (state, action) => {

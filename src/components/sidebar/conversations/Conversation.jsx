@@ -13,11 +13,11 @@ function Conversation({ convo, socket, online, typing }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { activeConversation } = useSelector((state) => state.chat);
-  const { token } = user;
+  const { access_token } = user;
   const values = {
     receiver_id: getConversationId(user, convo.users),
     isGroup: convo.isGroup ? convo._id : false,
-    token,
+    access_token,
   };
   const openConversation = async () => {
     let newConvo = await dispatch(open_create_conversation(values));
@@ -26,11 +26,9 @@ function Conversation({ convo, socket, online, typing }) {
   return (
     <li
       onClick={() => openConversation()}
-      className={`list-none h-[72px] w-full dark:bg-dark_bg_1 hover:${
-        convo._id !== activeConversation._id ? "dark:bg-dark_bg_2" : ""
-      } cursor-pointer dark:text-dark_text_1 px-[10px] ${
-        convo._id === activeConversation._id ? "dark:bg-dark_hover_1" : ""
-      }`}
+      className={`list-none h-[72px] w-full dark:bg-dark_bg_1 hover:${convo._id !== activeConversation._id ? "dark:bg-dark_bg_2" : ""
+        } cursor-pointer dark:text-dark_text_1 px-[10px] ${convo._id === activeConversation._id ? "dark:bg-dark_hover_1" : ""
+        }`}
     >
       {/*Container */}
       <div className="relative w-full flex items-center justify-between py-[10px]">
@@ -38,9 +36,8 @@ function Conversation({ convo, socket, online, typing }) {
         <div className="flex items-center gap-x-3">
           {/*Conversation user picture*/}
           <div
-            className={`relative min-w-[50px] max-w-[50px] h-[50px] rounded-full overflow-hidden ${
-              online ? "online" : ""
-            }`}
+            className={`relative min-w-[50px] max-w-[50px] h-[50px] rounded-full overflow-hidden ${online ? "online" : ""
+              }`}
           >
             <img
               src={
