@@ -158,6 +158,7 @@ function Home({ socket }) {
     socket.on("typing", (conversation) => setTyping(conversation));
     socket.on("stop typing", () => setTyping(false));
   }, []);
+  console.log("online users", onlineUsers)
   return (
     <>
       <div className="h-screen dark:bg-dark_bg_1 flex items-center justify-center overflow-hidden">
