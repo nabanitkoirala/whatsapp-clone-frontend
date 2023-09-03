@@ -11,9 +11,9 @@ export default function ChatContainer({ onlineUsers, typing, callUser }) {
   const dispatch = useDispatch();
   const { activeConversation, files } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
-  const { token } = user;
+  const { access_token } = user;
   const values = {
-    token,
+    access_token,
     convo_id: activeConversation?._id,
   };
   useEffect(() => {

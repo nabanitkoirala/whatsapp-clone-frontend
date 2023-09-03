@@ -14,14 +14,14 @@ function ChatActions({ socket }) {
   const [loading, setLoading] = useState(false);
   const { activeConversation, status } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
-  const { token } = user;
+  const { access_token } = user;
   const [message, setMessage] = useState("");
   const textRef = useRef();
   const values = {
     message,
     convo_id: activeConversation._id,
     files: [],
-    token,
+    access_token,
   };
   const SendMessageHandler = async (e) => {
     e.preventDefault();

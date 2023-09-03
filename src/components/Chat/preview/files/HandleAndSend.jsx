@@ -16,7 +16,7 @@ function HandleAndSend({ activeIndex, setActiveIndex, message, socket }) {
   const [loading, setLoading] = useState(false);
   const { files, activeConversation } = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
-  const { token } = user;
+  const { access_token } = user;
   //send message handler
   const sendMessageHandler = async (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ function HandleAndSend({ activeIndex, setActiveIndex, message, socket }) {
     const uploaded_files = await uploadFiles(files);
     //send the message
     const values = {
-      token,
+      access_token,
       message,
       convo_id: activeConversation._id,
       files: uploaded_files.length > 0 ? uploaded_files : [],
